@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{ name }}</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="webpack_assets" name="{{ name }} webpack_assets">
+            <head t-if="header"></head>
+            <body t-if="not header"></body>
+        </template>
+    </data>
+</odoo>
