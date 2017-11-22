@@ -9,21 +9,21 @@
     <div class="table-responsive">
       <table class="table" :class="tableClass">
         <thead>
-          <th v-for="column in columns" align='center'>{{ columnify(column) }}</th>
+          <th v-for="column in columns" align='center'> \{{ columnify(column) }}</th>
         </thead>
         <tbody>
           <tr v-for="item in data">
-            <td v-for="column in columns" v-if="hasValue(item, column)">{{ column==='amount'? moneify(itemValue(item, column)):itemValue(item, column )}}</td>
+            <td v-for="column in columns" v-if="hasValue(item, column)">\{{ column==='amount'? moneify(itemValue(item, column)):itemValue(item, column )}}</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class='paginator' v-if="pagination">
-      <span v-if="page>2" @click="pageChange(1)">{{ $t('message.first') }}</span>
-      <span v-if="page>1" @click="pageChange(page-1)">{{ page-1 }}</span>
-      <span class="active">{{ page }}</span>
-      <span v-if="page!=totalPages" @click="pageChange(page+1)">{{ page+1 }}</span>
-      <span v-if="page!=totalPages" @click="pageChange(totalPages)">{{ $t('message.last') }}</span>
+      <span v-if="page>2" @click="pageChange(1)">\{{ $t('message.first') }}</span>
+      <span v-if="page>1" @click="pageChange(page-1)">\{{ page-1 }}</span>
+      <span class="active">\{{ page }}</span>
+      <span v-if="page!=totalPages" @click="pageChange(page+1)">\{{ page+1 }}</span>
+      <span v-if="page!=totalPages" @click="pageChange(totalPages)">\{{ $t('message.last') }}</span>
     </div>
   </div>
 </template>
