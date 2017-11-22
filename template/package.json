@@ -16,7 +16,7 @@
   "dependencies": {
     "vue-i18n": "^7.3.2",
     "vue": "^2.4.2"{{#router}},
-    "vue-router": "^2.7.0"{{/router}},
+    "vue-router": "^2.7.0"{{/router}}
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
