@@ -9,11 +9,11 @@
     <div class="table-responsive">
       <table class="table" :class="tableClass">
         <thead>
-          <th v-for="column in columns" align='center'>{{columnify(column)}}</th>
+          <th v-for="column in columns" align='center'>{{ columnify(column) }}</th>
         </thead>
         <tbody>
           <tr v-for="item in data">
-            <td v-for="column in columns" v-if="hasValue(item, column)">{{column==='amount'? moneify(itemValue(item, column)):itemValue(item, column)}}</td>
+            <td v-for="column in columns" v-if="hasValue(item, column)">{{ column==='amount'? moneify(itemValue(item, column)):itemValue(item, column )}}</td>
           </tr>
         </tbody>
       </table>
@@ -86,5 +86,17 @@
 <style scoped>
   th{
     text-align: center;
+  }
+  .paginator span{
+    cursor: pointer;
+  }
+  .paginator .active {
+    background-color: #e7e7e7;
+    border-color: #e7e7e7;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 3px;
+    padding-right: 2px;
+    padding-left: 2px;
   }
 </style>
