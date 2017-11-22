@@ -7,12 +7,24 @@ import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
+import enUs from './translations/en-us'
+import VueI18n from 'vue-i18n'
+
+Vue.use(VueI18n)
+
+const i18n = new VueI18n({
+  locale: 'en',
+  messages: enUs.messages,
+  numberFormats: enUs.numberFormats
+})
+
 
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  i18n,
   {{#router}}
   router,
   {{/router}}
