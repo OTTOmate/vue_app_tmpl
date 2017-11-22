@@ -1,8 +1,8 @@
 let messages = {
   en: {
     message: {
-      last: "Last",
-      first: "First"
+      last: 'Last',
+      first: 'First'
     }
   }
 }
