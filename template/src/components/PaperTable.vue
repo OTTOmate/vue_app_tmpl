@@ -18,6 +18,13 @@
         </tbody>
       </table>
     </div>
+    <div class='paginator' v-if="pagination">
+      <span v-if="page>2" @click="pageChange(1)">{{ $t('message.first') }}</span>
+      <span v-if="page>1" @click="pageChange(page-1)">{{ page-1 }}</span>
+      <span class="active">{{ page }}</span>
+      <span v-if="page!=totalPages" @click="pageChange(page+1)">{{ page+1 }}</span>
+      <span v-if="page!=totalPages" @click="pageChange(totalPages)">{{ $t('message.last') }}</span>
+    </div>
   </div>
 </template>
 <script>
@@ -36,8 +43,14 @@
       subTitle: {
         type: String,
         default: ''
-
-      }
+      },
+      pagination: {
+        default: false
+      },
+      max_results: 5,
+      total: 0,
+      page: 1,
+      totalPages: null
     },
     computed: {
       tableClass () {
@@ -60,11 +73,17 @@
         value = value.charAt(0).toUpperCase() + value.slice(1)
         // value[0] = value[0].toUpperCase()
         return value
+      },
+      percentify (value) {
+        return this.$n(value, 'percentage')
+      },
+      pageChange (page) {
+        this.$emit('pageChange', page)
       }
     }
   }
 </script>
-<style>
+<style scoped>
   th{
     text-align: center;
   }
